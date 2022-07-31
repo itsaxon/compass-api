@@ -5,7 +5,7 @@ package com.compass.common.exception.biz;
  * 业务响应
  *
  * @author liushuozhen
- * @date 2022/07/21
+ * @date 2022/07/31
  */
 public interface BizResponse {
 

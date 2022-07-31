@@ -4,7 +4,7 @@ package com.compass.common.exception.biz;
  * 业务执行异常枚举
  *
  * @author liushuozhen
- * @date 2022/07/21
+ * @date 2022/07/31
  */
 public enum R implements BizExceptionAssert {
 

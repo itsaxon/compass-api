@@ -10,7 +10,7 @@ import java.util.Objects;
  * 异常断言
  *
  * @author liushuozhen
- * @date 2022/07/21
+ * @date 2022/07/31
  */
 @SuppressWarnings("unused")
 public interface ExceptionAssert {

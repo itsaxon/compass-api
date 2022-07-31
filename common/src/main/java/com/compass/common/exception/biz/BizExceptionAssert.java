@@ -4,7 +4,7 @@ package com.compass.common.exception.biz;
  * 业务异常断言
  *
  * @author liushuozhen
- * @date 2022/07/21
+ * @date 2022/07/31
  */
 public interface BizExceptionAssert extends BizResponse, ExceptionAssert {
 

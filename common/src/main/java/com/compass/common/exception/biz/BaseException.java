@@ -6,7 +6,7 @@ import cn.hutool.core.util.StrUtil;
  * 基类异常
  *
  * @author liushuozhen
- * @date 2022/07/21
+ * @date 2022/07/31
  */
 public abstract class BaseException extends RuntimeException {
 
