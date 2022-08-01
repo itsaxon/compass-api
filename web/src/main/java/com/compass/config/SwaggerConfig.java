@@ -1,6 +1,7 @@
 package com.compass.config;
 
 import com.compass.common.config.CompassConfig;
+import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +26,8 @@ import java.util.List;
  * @author itsaxon
  */
 @Configuration
+@EnableSwagger2
+@EnableKnife4j
 public class SwaggerConfig
 {
     /** 系统基础配置 */
@@ -109,9 +113,9 @@ public class SwaggerConfig
         // 用ApiInfoBuilder进行定制
         return new ApiInfoBuilder()
                 // 设置标题
-                .title("标题：若依管理系统_接口文档")
+                .title("CPS API 文档")
                 // 描述
-                .description("描述：用于管理集团旗下公司的人员信息,具体包括XXX,XXX模块...")
+                .description("司南后台管理系统接口文档")
                 // 作者信息
                 .contact(new Contact(compassConfig.getName(), null, null))
                 // 版本

@@ -8,7 +8,10 @@ import com.compass.common.core.domain.AjaxResult;
 import com.compass.common.core.redis.RedisCache;
 import com.compass.common.utils.sign.Base64;
 import com.compass.common.utils.uuid.IdUtils;
+import com.github.xiaoymin.knife4j.annotations.ApiSort;
 import com.google.code.kaptcha.Producer;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.FastByteArrayOutputStream;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,12 +23,16 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+
 /**
- * 验证码操作处理
+ * 验证码控制器
  *
  * @author itsaxon
+ * @date 2022/08/01
  */
 @RestController
+@Api(tags = "验证码")
+@ApiSort(value = 0)
 public class CaptchaController {
     @Autowired
     private Producer captchaProducer;
@@ -43,6 +50,7 @@ public class CaptchaController {
      * 生成验证码
      */
     @GetMapping("/captchaImage")
+    @ApiOperation("生成验证码")
     public AjaxResult getCode(HttpServletResponse response) throws IOException {
         AjaxResult ajax = AjaxResult.success();
         boolean captchaEnabled = configService.selectCaptchaEnabled();

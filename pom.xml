@@ -11,17 +11,6 @@
     <name>compass-api</name>
     <description>司南后台管理系统</description>
 
-
-<!--    <parent>-->
-<!--        <groupId>org.springframework.boot</groupId>-->
-<!--        <artifactId>spring-boot-starter-parent</artifactId>-->
-<!--        <version>2.3.0.RELEASE</version>-->
-<!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
-<!--    </parent>-->
-
-
-
-
     <properties>
         <hutool.version>5.7.11</hutool.version>
         <compass.version>0.0.1-SNAPSHOT</compass.version>
@@ -43,11 +32,34 @@
         <poi.version>4.1.2</poi.version>
         <velocity.version>2.3</velocity.version>
         <jwt.version>0.9.1</jwt.version>
+        <knife4j.version>3.0.3</knife4j.version>
+        <mybatis-plus.version>3.0.3</mybatis-plus.version>
+        <mybatis-generator.version>3.4.1</mybatis-generator.version>
     </properties>
 
     <!-- 依赖声明 -->
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-generator.version}</version>
+            </dependency>
+            <!-- mybatisPlus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!-- swagger工具类 -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
             <!-- hutool工具类 -->
             <dependency>
                 <groupId>cn.hutool</groupId>
@@ -212,6 +224,7 @@
         <module>biz</module>
         <module>dal</module>
         <module>facade</module>
+        <module>mpg</module>
     </modules>
     <packaging>pom</packaging>
 

@@ -1,9 +1,9 @@
 # 项目相关配置
 compass:
   # 名称
-  name: Compass
+  name: itsaxon
   # 版本
-  version: 3.8.3
+  version: 1.0.1
   # 版权年份
   copyrightYear: 2022
   # 实例演示开关
