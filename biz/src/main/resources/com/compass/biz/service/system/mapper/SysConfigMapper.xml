@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.composs.biz.service.system.mapper.SysConfigMapper">
+<mapper namespace="com.compass.biz.service.system.mapper.SysConfigMapper">
     
     <resultMap type="com.compass.biz.service.system.domain.SysConfig" id="SysConfigResult">
     	<id     property="configId"      column="config_id"      />

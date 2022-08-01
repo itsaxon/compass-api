@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.composs.biz.service.system.mapper.SysDictTypeMapper">
+<mapper namespace="com.compass.biz.service.system.mapper.SysDictTypeMapper">
 
 	<resultMap type="com.compass.common.core.domain.entity.SysDictType" id="SysDictTypeResult">
 		<id     property="dictId"     column="dict_id"     />
