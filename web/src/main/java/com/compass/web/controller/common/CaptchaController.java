@@ -17,6 +17,7 @@ import org.springframework.util.FastByteArrayOutputStream;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
@@ -30,14 +31,15 @@ import java.util.concurrent.TimeUnit;
  * @author itsaxon
  * @date 2022/08/01
  */
-@RestController
+@RestController("/")
 @Api(tags = "验证码")
 @ApiSort(value = 0)
 public class CaptchaController {
-    @Autowired
+
+    @Resource(name = "captchaProducer")
     private Producer captchaProducer;
 
-    @Autowired
+    @Resource(name = "captchaProducerMath")
     private Producer captchaProducerMath;
 
     @Autowired

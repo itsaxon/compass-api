@@ -22,7 +22,7 @@ public class App {
         springApplication.addPrimarySources(sources);
         // TODO: 2022/8/1 添加启动项目监听
         springApplication.run(args);
-        System.out.print("App started -------------------------");
+        System.out.println("App started -------------------------");
     }
 
 }

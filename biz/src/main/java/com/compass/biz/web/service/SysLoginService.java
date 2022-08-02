@@ -61,12 +61,12 @@ public class SysLoginService
      */
     public String login(String username, String password, String code, String uuid)
     {
-        boolean captchaEnabled = configService.selectCaptchaEnabled();
-        // 验证码开关
-        if (captchaEnabled)
-        {
-            validateCaptcha(username, code, uuid);
-        }
+//        boolean captchaEnabled = configService.selectCaptchaEnabled();
+//        // 验证码开关
+//        if (captchaEnabled)
+//        {
+//            validateCaptcha(username, code, uuid);
+//        }
         // 用户验证
         Authentication authentication = null;
         try
