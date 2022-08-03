@@ -33,7 +33,8 @@ import java.util.stream.Collectors;
  * @author itsaxon
  * @date 2022/08/03
  */
-@RestController("/system/user")
+@RestController
+@RequestMapping("/system/user")
 @Api("用户信息")
 @ApiSort(1)
 public class SysUserController extends BaseController {
