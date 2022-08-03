@@ -1,4 +1,4 @@
-package com.compass.web.controller.system;
+package com.compass.controller;
 
 import com.compass.common.annotation.Log;
 import com.compass.common.constant.UserConstants;
@@ -14,6 +14,8 @@ import com.compass.common.utils.poi.ExcelUtil;
 import com.compass.biz.service.system.service.ISysPostService;
 import com.compass.biz.service.system.service.ISysRoleService;
 import com.compass.biz.service.system.service.ISysUserService;
+import com.github.xiaoymin.knife4j.annotations.ApiSort;
+import io.swagger.annotations.Api;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -26,14 +28,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * 用户信息
- * 
+ * 系统用户控制器
+ *
  * @author itsaxon
+ * @date 2022/08/03
  */
-@RestController
-@RequestMapping("/system/user")
-public class SysUserController extends BaseController
-{
+@RestController("/system/user")
+@Api("用户信息")
+@ApiSort(1)
+public class SysUserController extends BaseController {
+
     @Autowired
     private ISysUserService userService;
 

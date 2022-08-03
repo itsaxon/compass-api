@@ -1,4 +1,4 @@
-package com.compass.web.controller.common;
+package com.compass.controller;
 
 import com.compass.biz.service.system.service.ISysConfigService;
 import com.compass.common.config.CompassConfig;

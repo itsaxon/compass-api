@@ -1,4 +1,4 @@
-package com.compass.web.controller.system;
+package com.compass.controller;
 
 import com.compass.biz.service.system.service.ISysMenuService;
 import com.compass.biz.web.service.SysLoginService;

@@ -1,4 +1,4 @@
-package com.compass.web;
+package com.compass;
 
 import cn.hutool.core.collection.CollUtil;
 import org.springframework.boot.SpringApplication;

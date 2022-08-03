@@ -1,4 +1,4 @@
-package com.compass.config;
+package com.compass.biz.config;
 
 import com.compass.common.config.CompassConfig;
 import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;

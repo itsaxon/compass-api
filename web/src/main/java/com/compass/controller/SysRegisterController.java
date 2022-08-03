@@ -1,4 +1,4 @@
-package com.compass.web.controller.system;
+package com.compass.controller;
 
 import com.compass.common.core.controller.BaseController;
 import com.compass.common.core.domain.AjaxResult;

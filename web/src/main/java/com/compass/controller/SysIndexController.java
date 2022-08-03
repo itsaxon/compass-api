@@ -1,4 +1,4 @@
-package com.compass.web.controller.system;
+package com.compass.controller;
 
 import com.compass.common.config.CompassConfig;
 import com.compass.common.utils.StringUtils;

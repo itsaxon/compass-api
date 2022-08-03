@@ -1,4 +1,4 @@
-package com.compass.web.controller.system;
+package com.compass.controller;
 
 import com.compass.common.annotation.Log;
 import com.compass.common.constant.UserConstants;
