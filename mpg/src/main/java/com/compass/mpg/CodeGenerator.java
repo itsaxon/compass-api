@@ -24,7 +24,7 @@ import java.util.Scanner;
  * @author liushuozhen
  * @date 2022/08/01
  */
-@SuppressWarnings("AlibabaMethodTooLon")
+@SuppressWarnings("AlibabaMethodTooLong")
 public class CodeGenerator {
 
     /**

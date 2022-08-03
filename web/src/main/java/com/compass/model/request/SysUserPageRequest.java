@@ -1,4 +1,4 @@
-package com.compass.model;
+package com.compass.model.request;
 
 import lombok.Data;
 

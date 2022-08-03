@@ -17,72 +17,93 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * 角色信息表
+ * 用户信息表
  *
  * @author itsaxon
- * @date 2022-08-01
+ * @date 2022-08-03
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("sys_role")
-@ApiModel(value = "SysRoleEntity对象", description = "角色信息表")
-public class SysRoleEntity extends Model<SysRoleEntity> {
+@TableName("compass_sys_user")
+@ApiModel(value = "CompassSysUserEntity对象", description = "用户信息表")
+public class CompassSysUserEntity extends Model<CompassSysUserEntity> {
 
     private static final long serialVersionUID = 1L;
 
      /**
-      * 角色ID
+      * 用户ID
       */
-    @ApiModelProperty(value = "角色ID")
-    @TableId(value = "role_id", type = IdType.AUTO)
-    private Long roleId;
+    @ApiModelProperty(value = "用户ID")
+    @TableId(value = "user_id", type = IdType.AUTO)
+    private Long userId;
 
      /**
-      * 角色名称
+      * 部门ID
       */
-    @ApiModelProperty(value = "角色名称")
-    @TableField("role_name")
-    private String roleName;
+    @ApiModelProperty(value = "部门ID")
+    @TableField("dept_id")
+    private Long deptId;
 
      /**
-      * 角色权限字符串
+      * 用户账号
       */
-    @ApiModelProperty(value = "角色权限字符串")
-    @TableField("role_key")
-    private String roleKey;
+    @ApiModelProperty(value = "用户账号")
+    @TableField("user_name")
+    private String userName;
 
      /**
-      * 显示顺序
+      * 用户昵称
       */
-    @ApiModelProperty(value = "显示顺序")
-    @TableField("role_sort")
-    private Integer roleSort;
+    @ApiModelProperty(value = "用户昵称")
+    @TableField("nick_name")
+    private String nickName;
 
      /**
-      * 数据范围（1：全部数据权限 2：自定数据权限 3：本部门数据权限 4：本部门及以下数据权限）
+      * 用户类型（00系统用户）
       */
-    @ApiModelProperty(value = "数据范围（1：全部数据权限 2：自定数据权限 3：本部门数据权限 4：本部门及以下数据权限）")
-    @TableField("data_scope")
-    private String dataScope;
+    @ApiModelProperty(value = "用户类型（00系统用户）")
+    @TableField("user_type")
+    private String userType;
 
      /**
-      * 菜单树选择项是否关联显示
+      * 用户邮箱
       */
-    @ApiModelProperty(value = "菜单树选择项是否关联显示")
-    @TableField("menu_check_strictly")
-    private Boolean menuCheckStrictly;
+    @ApiModelProperty(value = "用户邮箱")
+    @TableField("email")
+    private String email;
 
      /**
-      * 部门树选择项是否关联显示
+      * 手机号码
       */
-    @ApiModelProperty(value = "部门树选择项是否关联显示")
-    @TableField("dept_check_strictly")
-    private Boolean deptCheckStrictly;
+    @ApiModelProperty(value = "手机号码")
+    @TableField("phonenumber")
+    private String phonenumber;
 
      /**
-      * 角色状态（0正常 1停用）
+      * 用户性别（0男 1女 2未知）
       */
-    @ApiModelProperty(value = "角色状态（0正常 1停用）")
+    @ApiModelProperty(value = "用户性别（0男 1女 2未知）")
+    @TableField("sex")
+    private String sex;
+
+     /**
+      * 头像地址
+      */
+    @ApiModelProperty(value = "头像地址")
+    @TableField("avatar")
+    private String avatar;
+
+     /**
+      * 密码
+      */
+    @ApiModelProperty(value = "密码")
+    @TableField("password")
+    private String password;
+
+     /**
+      * 帐号状态（0正常 1停用）
+      */
+    @ApiModelProperty(value = "帐号状态（0正常 1停用）")
     @TableField("status")
     private String status;
 
@@ -93,6 +114,20 @@ public class SysRoleEntity extends Model<SysRoleEntity> {
     @TableField("del_flag")
     @TableLogic
     private String delFlag;
+
+     /**
+      * 最后登录IP
+      */
+    @ApiModelProperty(value = "最后登录IP")
+    @TableField("login_ip")
+    private String loginIp;
+
+     /**
+      * 最后登录时间
+      */
+    @ApiModelProperty(value = "最后登录时间")
+    @TableField("login_date")
+    private Date loginDate;
 
      /**
       * 创建者
@@ -132,7 +167,7 @@ public class SysRoleEntity extends Model<SysRoleEntity> {
 
     @Override
     protected Serializable pkVal() {
-        return this.roleId;
+        return this.userId;
     }
 
 }

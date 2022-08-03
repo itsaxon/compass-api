@@ -214,6 +214,13 @@
                 <artifactId>facade</artifactId>
                 <version>${compass.version}</version>
             </dependency>
+
+            <!-- 外观层-->
+            <dependency>
+                <groupId>com.compass</groupId>
+                <artifactId>mpg</artifactId>
+                <version>${compass.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

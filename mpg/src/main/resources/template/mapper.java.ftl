@@ -1,6 +1,5 @@
 package ${package.Mapper};
 
-import com.trinasolar.csde.epm.api.contract.annotation.DataScopeAnnotation;
 import ${package.Entity}.${entity};
 import ${superMapperClassPackage};
 import org.apache.ibatis.annotations.Mapper;
