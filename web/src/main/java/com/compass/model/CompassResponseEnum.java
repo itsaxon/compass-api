@@ -5,14 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * 常见错误代码
+ * 业务返回枚举
  *
  * @author itsaxon
  * @date 2022/08/03
  */
 @Getter
 @AllArgsConstructor
-public enum CommonErrorCode implements BizResponse {
+public enum CompassResponseEnum implements BizResponse {
 
     /**
      * 成功

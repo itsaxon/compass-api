@@ -33,7 +33,7 @@ public class CompassResponse<T> implements Serializable {
     }
 
     public CompassResponse(int bizCode, String bizMsg, T data, String postToken) {
-        this.bizCode = CommonErrorCode.SUCCESS.getBizCode();
+        this.bizCode = CompassResponseEnum.SUCCESS.getBizCode();
         this.bizMsg = "操作成功";
         this.timestamp = System.currentTimeMillis();
         this.bizCode = bizCode;
@@ -44,7 +44,7 @@ public class CompassResponse<T> implements Serializable {
     }
 
     public CompassResponse(T data) {
-        this("", data, CommonErrorCode.SUCCESS.getBizCode());
+        this("", data, CompassResponseEnum.SUCCESS.getBizCode());
     }
 
     public static <T> CompassResponse<T> ok(T data) {
@@ -52,15 +52,15 @@ public class CompassResponse<T> implements Serializable {
     }
 
     public static <T> CompassResponse<T> ok(String msg, T data) {
-        return new CompassResponse<>(msg, data, CommonErrorCode.SUCCESS.getBizCode());
+        return new CompassResponse<>(msg, data, CompassResponseEnum.SUCCESS.getBizCode());
     }
 
     public static CompassResponse<?> error() {
-        return new CompassResponse<>("操作失败", null, CommonErrorCode.ERROR.getBizCode());
+        return new CompassResponse<>("操作失败", null, CompassResponseEnum.ERROR.getBizCode());
     }
 
     public static CompassResponse<?> error(String msg) {
-        return new CompassResponse<>(msg, null, CommonErrorCode.ERROR.getBizCode());
+        return new CompassResponse<>(msg, null, CompassResponseEnum.ERROR.getBizCode());
     }
 
     public static CompassResponse<?> error(String msg, int bizCode) {
