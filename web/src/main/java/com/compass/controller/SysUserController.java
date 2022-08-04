@@ -16,6 +16,7 @@ import com.compass.common.utils.StringUtils;
 import com.compass.common.utils.poi.ExcelUtil;
 import com.compass.manager.SysUserManager;
 import com.compass.model.CompassResponse;
+import com.compass.model.request.SysUserPageRequest;
 import com.compass.model.vo.SysUserPageVO;
 import com.github.pagehelper.PageInfo;
 import com.github.xiaoymin.knife4j.annotations.ApiSort;
@@ -41,7 +42,7 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/system/user")
-@Api("用户信息")
+@Api(tags = "用户信息")
 @ApiSort(1)
 public class SysUserController extends BaseController {
 
@@ -61,12 +62,16 @@ public class SysUserController extends BaseController {
      * 获取用户列表
      */
     @PreAuthorize("@ss.hasPermi('system:user:list')")
-    @GetMapping("/list")
+    @GetMapping("/listX")
     @ApiOperation("获取用户列表")
-    public CompassResponse<PageInfo<SysUserPageVO>> listX(SysUser user) {
+    public CompassResponse<PageInfo<SysUserPageVO>> listX(SysUserPageRequest request) {
+
+
 
 
         PageInfo<SysUserPageVO> pageVoPageInfo = new PageInfo<>();
+
+
 
         return CompassResponse.ok(pageVoPageInfo);
     }
