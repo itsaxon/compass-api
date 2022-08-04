@@ -1,6 +1,9 @@
 package com.compass.manager;
 
+import cn.hutool.extra.cglib.CglibUtil;
 import com.compass.common.constant.CompassConstants;
+import com.compass.model.request.SysUserPageRequest;
+import com.compass.model.vo.SysUserPageVO;
 import com.compass.mpg.model.CompassSysUserEntity;
 import com.compass.mpg.service.CompassSysUserService;
 import com.github.pagehelper.PageHelper;
@@ -22,25 +25,20 @@ public class SysUserManager {
     @Resource
     private CompassSysUserService compassSysUserService;
 
-    public void selectSysUserList(){
+    /**
+     * 得到系统用户列表
+     *
+     * @param request 请求
+     * @return {@link PageInfo}<{@link SysUserPageVO}>
+     */
+    public PageInfo<SysUserPageVO> selectSysUserList(SysUserPageRequest request) {
 
-        PageHelper.startPage(1,10);
+        PageHelper.startPage(request.getPageNum(), request.getPageSize());
 
         // 获取系统用户列表
         List<CompassSysUserEntity> compassSysUserEntityList = compassSysUserService.lambdaQuery()
                 .eq(CompassSysUserEntity::getDelFlag, CompassConstants.DelFlag.FALSE)
                 .list();
-        PageInfo<CompassSysUserEntity> compassSysUserEntityPageInfo = new PageInfo<>(compassSysUserEntityList);
-
-
-
-
-
+        return new PageInfo<>(CglibUtil.copyList(compassSysUserEntityList, SysUserPageVO::new));
     }
-
-
-
-
-
-
 }

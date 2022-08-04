@@ -18,7 +18,6 @@ import com.compass.manager.SysUserManager;
 import com.compass.model.CompassResponse;
 import com.compass.model.request.SysUserPageRequest;
 import com.compass.model.vo.SysUserPageVO;
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.github.xiaoymin.knife4j.annotations.ApiSort;
 import io.swagger.annotations.Api;
@@ -66,11 +65,7 @@ public class SysUserController extends BaseController {
     @GetMapping("/listX")
     @ApiOperation("获取用户列表")
     public CompassResponse<PageInfo<SysUserPageVO>> listX(SysUserPageRequest request) {
-
-        PageHelper.startPage(1,5);
-        PageInfo<SysUserPageVO> pageVoPageInfo = new PageInfo<>();
-
-        return CompassResponse.ok(pageVoPageInfo);
+        return CompassResponse.ok(sysUserManager.selectSysUserList(request));
     }
 
     /**
