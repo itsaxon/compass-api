@@ -3,7 +3,7 @@ package com.compass.controller;
 import com.compass.biz.service.system.service.ISysConfigService;
 import com.compass.common.config.CompassConfig;
 import com.compass.common.constant.CacheConstants;
-import com.compass.common.constant.Constants;
+import com.compass.common.constant.CompassConstants;
 import com.compass.common.core.domain.AjaxResult;
 import com.compass.common.core.redis.RedisCache;
 import com.compass.common.utils.sign.Base64;
@@ -80,7 +80,7 @@ public class CaptchaController {
             image = captchaProducer.createImage(capStr);
         }
 
-        redisCache.setCacheObject(verifyKey, code, Constants.CAPTCHA_EXPIRATION, TimeUnit.MINUTES);
+        redisCache.setCacheObject(verifyKey, code, CompassConstants.CAPTCHA_EXPIRATION, TimeUnit.MINUTES);
         // 转换流信息写出
         FastByteArrayOutputStream os = new FastByteArrayOutputStream();
         try {

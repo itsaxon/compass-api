@@ -3,12 +3,13 @@ package com.compass.controller;
 import com.compass.biz.service.system.service.ISysMenuService;
 import com.compass.biz.web.service.SysLoginService;
 import com.compass.biz.web.service.SysPermissionService;
-import com.compass.common.constant.Constants;
+import com.compass.common.constant.CompassConstants;
 import com.compass.common.core.domain.AjaxResult;
 import com.compass.common.core.domain.entity.SysMenu;
 import com.compass.common.core.domain.entity.SysUser;
 import com.compass.common.core.domain.model.LoginBody;
 import com.compass.common.utils.SecurityUtils;
+import com.github.xiaoymin.knife4j.annotations.ApiSort;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,8 @@ import java.util.Set;
  * @author itsaxon
  */
 @RestController
-@Api("登录验证")
+@Api(tags = "登录验证")
+@ApiSort(8)
 public class SysLoginController
 {
     @Autowired
@@ -52,7 +54,7 @@ public class SysLoginController
         // 生成令牌
         String token = loginService.login(loginBody.getUsername(), loginBody.getPassword(), loginBody.getCode(),
                 loginBody.getUuid());
-        ajax.put(Constants.TOKEN, token);
+        ajax.put(CompassConstants.TOKEN, token);
         return ajax;
     }
 

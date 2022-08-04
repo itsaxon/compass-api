@@ -1,7 +1,7 @@
 package com.compass.common.utils.file;
 
 import com.compass.common.config.CompassConfig;
-import com.compass.common.constant.Constants;
+import com.compass.common.constant.CompassConstants;
 import com.compass.common.exception.file.FileNameLengthLimitExceededException;
 import com.compass.common.exception.file.FileSizeLimitExceededException;
 import com.compass.common.exception.file.InvalidExtensionException;
@@ -145,7 +145,7 @@ public class FileUploadUtils
     {
         int dirLastIndex = CompassConfig.getProfile().length() + 1;
         String currentDir = StringUtils.substring(uploadDir, dirLastIndex);
-        return Constants.RESOURCE_PREFIX + "/" + currentDir + "/" + fileName;
+        return CompassConstants.RESOURCE_PREFIX + "/" + currentDir + "/" + fileName;
     }
 
     /**

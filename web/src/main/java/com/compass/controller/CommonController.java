@@ -1,7 +1,7 @@
 package com.compass.controller;
 
 import com.compass.common.config.CompassConfig;
-import com.compass.common.constant.Constants;
+import com.compass.common.constant.CompassConstants;
 import com.compass.common.core.domain.AjaxResult;
 import com.compass.common.utils.StringUtils;
 import com.compass.common.utils.file.FileUploadUtils;
@@ -149,7 +149,7 @@ public class CommonController
             // 本地资源路径
             String localPath = CompassConfig.getProfile();
             // 数据库资源地址
-            String downloadPath = localPath + StringUtils.substringAfter(resource, Constants.RESOURCE_PREFIX);
+            String downloadPath = localPath + StringUtils.substringAfter(resource, CompassConstants.RESOURCE_PREFIX);
             // 下载名称
             String downloadName = StringUtils.substringAfterLast(downloadPath, "/");
             response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);

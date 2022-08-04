@@ -1,6 +1,6 @@
 package com.compass.biz.service.system.service.impl;
 
-import com.compass.common.constant.Constants;
+import com.compass.common.constant.CompassConstants;
 import com.compass.common.constant.UserConstants;
 import com.compass.common.core.domain.TreeSelect;
 import com.compass.common.core.domain.entity.SysMenu;
@@ -503,7 +503,7 @@ public class SysMenuServiceImpl implements ISysMenuService
      */
     public String innerLinkReplaceEach(String path)
     {
-        return StringUtils.replaceEach(path, new String[] { Constants.HTTP, Constants.HTTPS },
+        return StringUtils.replaceEach(path, new String[] { CompassConstants.HTTP, CompassConstants.HTTPS },
                 new String[] { "", "" });
     }
 }

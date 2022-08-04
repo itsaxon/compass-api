@@ -1,6 +1,6 @@
 package com.compass.biz.manager.factory;
 
-import com.compass.common.constant.Constants;
+import com.compass.common.constant.CompassConstants;
 import com.compass.common.utils.LogUtils;
 import com.compass.common.utils.ServletUtils;
 import com.compass.common.utils.StringUtils;
@@ -67,13 +67,13 @@ public class AsyncFactory
                 logininfor.setOs(os);
                 logininfor.setMsg(message);
                 // 日志状态
-                if (StringUtils.equalsAny(status, Constants.LOGIN_SUCCESS, Constants.LOGOUT, Constants.REGISTER))
+                if (StringUtils.equalsAny(status, CompassConstants.LOGIN_SUCCESS, CompassConstants.LOGOUT, CompassConstants.REGISTER))
                 {
-                    logininfor.setStatus(Constants.SUCCESS);
+                    logininfor.setStatus(CompassConstants.SUCCESS);
                 }
-                else if (Constants.LOGIN_FAIL.equals(status))
+                else if (CompassConstants.LOGIN_FAIL.equals(status))
                 {
-                    logininfor.setStatus(Constants.FAIL);
+                    logininfor.setStatus(CompassConstants.FAIL);
                 }
                 // 插入数据
                 SpringUtils.getBean(ISysLogininforService.class).insertLogininfor(logininfor);

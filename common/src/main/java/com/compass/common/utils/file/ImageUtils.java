@@ -1,7 +1,7 @@
 package com.compass.common.utils.file;
 
 import com.compass.common.config.CompassConfig;
-import com.compass.common.constant.Constants;
+import com.compass.common.constant.CompassConstants;
 import com.compass.common.utils.StringUtils;
 import org.apache.poi.util.IOUtils;
 import org.slf4j.Logger;
@@ -81,7 +81,7 @@ public class ImageUtils
             {
                 // 本机地址
                 String localPath = CompassConfig.getProfile();
-                String downloadPath = localPath + StringUtils.substringAfter(url, Constants.RESOURCE_PREFIX);
+                String downloadPath = localPath + StringUtils.substringAfter(url, CompassConstants.RESOURCE_PREFIX);
                 in = new FileInputStream(downloadPath);
             }
             return IOUtils.toByteArray(in);

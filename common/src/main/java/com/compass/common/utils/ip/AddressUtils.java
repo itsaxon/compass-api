@@ -3,7 +3,7 @@ package com.compass.common.utils.ip;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 import com.compass.common.config.CompassConfig;
-import com.compass.common.constant.Constants;
+import com.compass.common.constant.CompassConstants;
 import com.compass.common.utils.StringUtils;
 import com.compass.common.utils.http.HttpUtils;
 import org.slf4j.Logger;
@@ -35,7 +35,7 @@ public class AddressUtils
         {
             try
             {
-                String rspStr = HttpUtils.sendGet(IP_URL, "ip=" + ip + "&json=true", Constants.GBK);
+                String rspStr = HttpUtils.sendGet(IP_URL, "ip=" + ip + "&json=true", CompassConstants.GBK);
                 if (StringUtils.isEmpty(rspStr))
                 {
                     log.error("获取地理位置异常 {}", ip);

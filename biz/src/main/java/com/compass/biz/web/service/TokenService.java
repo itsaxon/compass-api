@@ -1,7 +1,7 @@
 package com.compass.biz.web.service;
 
 import com.compass.common.constant.CacheConstants;
-import com.compass.common.constant.Constants;
+import com.compass.common.constant.CompassConstants;
 import com.compass.common.core.domain.model.LoginUser;
 import com.compass.common.core.redis.RedisCache;
 import com.compass.common.utils.ServletUtils;
@@ -66,7 +66,7 @@ public class TokenService
             {
                 Claims claims = parseToken(token);
                 // 解析对应的权限以及用户信息
-                String uuid = (String) claims.get(Constants.LOGIN_USER_KEY);
+                String uuid = (String) claims.get(CompassConstants.LOGIN_USER_KEY);
                 String userKey = getTokenKey(uuid);
                 LoginUser user = redisCache.getCacheObject(userKey);
                 return user;
@@ -115,7 +115,7 @@ public class TokenService
         refreshToken(loginUser);
 
         Map<String, Object> claims = new HashMap<>();
-        claims.put(Constants.LOGIN_USER_KEY, token);
+        claims.put(CompassConstants.LOGIN_USER_KEY, token);
         return createToken(claims);
     }
 
@@ -213,9 +213,9 @@ public class TokenService
     private String getToken(HttpServletRequest request)
     {
         String token = request.getHeader(header);
-        if (StringUtils.isNotEmpty(token) && token.startsWith(Constants.TOKEN_PREFIX))
+        if (StringUtils.isNotEmpty(token) && token.startsWith(CompassConstants.TOKEN_PREFIX))
         {
-            token = token.replace(Constants.TOKEN_PREFIX, "");
+            token = token.replace(CompassConstants.TOKEN_PREFIX, "");
         }
         return token;
     }

@@ -1,6 +1,6 @@
 package com.compass.common.utils;
 
-import com.compass.common.constant.Constants;
+import com.compass.common.constant.CompassConstants;
 import com.compass.common.core.text.Convert;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -159,7 +159,7 @@ public class ServletUtils
     {
         try
         {
-            return URLEncoder.encode(str, Constants.UTF8);
+            return URLEncoder.encode(str, CompassConstants.UTF8);
         }
         catch (UnsupportedEncodingException e)
         {
@@ -177,7 +177,7 @@ public class ServletUtils
     {
         try
         {
-            return URLDecoder.decode(str, Constants.UTF8);
+            return URLDecoder.decode(str, CompassConstants.UTF8);
         }
         catch (UnsupportedEncodingException e)
         {

@@ -1,7 +1,7 @@
 package com.compass.biz.security.handle;
 
 import com.alibaba.fastjson2.JSON;
-import com.compass.common.constant.Constants;
+import com.compass.common.constant.CompassConstants;
 import com.compass.common.constant.HttpStatus;
 import com.compass.common.core.domain.AjaxResult;
 import com.compass.common.core.domain.model.LoginUser;
@@ -47,7 +47,7 @@ public class LogoutSuccessHandlerImpl implements LogoutSuccessHandler
             // 删除用户缓存记录
             tokenService.delLoginUser(loginUser.getToken());
             // 记录用户退出日志
-            AsyncManager.me().execute(AsyncFactory.recordLogininfor(userName, Constants.LOGOUT, "退出成功"));
+            AsyncManager.me().execute(AsyncFactory.recordLogininfor(userName, CompassConstants.LOGOUT, "退出成功"));
         }
         ServletUtils.renderString(response, JSON.toJSONString(AjaxResult.error(HttpStatus.SUCCESS, "退出成功")));
     }

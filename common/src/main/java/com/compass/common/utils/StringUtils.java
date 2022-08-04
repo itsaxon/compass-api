@@ -1,6 +1,6 @@
 package com.compass.common.utils;
 
-import com.compass.common.constant.Constants;
+import com.compass.common.constant.CompassConstants;
 import com.compass.common.core.text.StrFormatter;
 import org.springframework.util.AntPathMatcher;
 
@@ -266,7 +266,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils
      */
     public static boolean ishttp(String link)
     {
-        return StringUtils.startsWithAny(link, Constants.HTTP, Constants.HTTPS);
+        return StringUtils.startsWithAny(link, CompassConstants.HTTP, CompassConstants.HTTPS);
     }
 
     /**

@@ -1,7 +1,7 @@
 package com.compass.biz.web.service;
 
 import com.compass.common.constant.CacheConstants;
-import com.compass.common.constant.Constants;
+import com.compass.common.constant.CompassConstants;
 import com.compass.common.constant.UserConstants;
 import com.compass.common.core.domain.entity.SysUser;
 import com.compass.common.core.domain.model.RegisterBody;
@@ -84,7 +84,7 @@ public class SysRegisterService
             }
             else
             {
-                AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.REGISTER,
+                AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, CompassConstants.REGISTER,
                         MessageUtils.message("user.register.success")));
             }
         }

@@ -7,7 +7,7 @@ import io.jsonwebtoken.Claims;
  * 
  * @author itsaxon
  */
-public class Constants
+public class CompassConstants
 {
     /**
      * UTF-8 字符集
@@ -134,4 +134,20 @@ public class Constants
      */
     public static final String[] JOB_ERROR_STR = { "java.net.URL", "javax.naming.InitialContext", "org.yaml.snakeyaml",
             "org.springframework", "org.apache", "com.compass.common.utils.file" };
+
+    /**
+     * 删除
+     */
+    public static class DelFlag {
+        /**
+         * 已删除
+         */
+        public static final Integer TRUE = 1;
+        /**
+         * 未删除
+         */
+        public static final Integer FALSE = 0;
+    }
+
+
 }

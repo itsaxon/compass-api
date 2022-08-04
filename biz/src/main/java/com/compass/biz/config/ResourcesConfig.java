@@ -1,7 +1,7 @@
 package com.compass.biz.config;
 
 import com.compass.common.config.CompassConfig;
-import com.compass.common.constant.Constants;
+import com.compass.common.constant.CompassConstants;
 import com.compass.biz.interceptor.RepeatSubmitInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -28,7 +28,7 @@ public class ResourcesConfig implements WebMvcConfigurer
     public void addResourceHandlers(ResourceHandlerRegistry registry)
     {
         /** 本地文件上传路径 */
-        registry.addResourceHandler(Constants.RESOURCE_PREFIX + "/**")
+        registry.addResourceHandler(CompassConstants.RESOURCE_PREFIX + "/**")
                 .addResourceLocations("file:" + CompassConfig.getProfile() + "/");
 
         /** swagger配置 */

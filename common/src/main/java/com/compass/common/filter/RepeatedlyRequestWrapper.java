@@ -1,6 +1,6 @@
 package com.compass.common.filter;
 
-import com.compass.common.constant.Constants;
+import com.compass.common.constant.CompassConstants;
 import com.compass.common.utils.http.HttpHelper;
 
 import javax.servlet.ReadListener;
@@ -25,10 +25,10 @@ public class RepeatedlyRequestWrapper extends HttpServletRequestWrapper
     public RepeatedlyRequestWrapper(HttpServletRequest request, ServletResponse response) throws IOException
     {
         super(request);
-        request.setCharacterEncoding(Constants.UTF8);
-        response.setCharacterEncoding(Constants.UTF8);
+        request.setCharacterEncoding(CompassConstants.UTF8);
+        response.setCharacterEncoding(CompassConstants.UTF8);
 
-        body = HttpHelper.getBodyString(request).getBytes(Constants.UTF8);
+        body = HttpHelper.getBodyString(request).getBytes(CompassConstants.UTF8);
     }
 
     @Override
