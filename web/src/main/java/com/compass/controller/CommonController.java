@@ -1,12 +1,15 @@
 package com.compass.controller;
 
+import com.compass.biz.config.ServerConfig;
 import com.compass.common.config.CompassConfig;
 import com.compass.common.constant.CompassConstants;
 import com.compass.common.core.domain.AjaxResult;
 import com.compass.common.utils.StringUtils;
 import com.compass.common.utils.file.FileUploadUtils;
 import com.compass.common.utils.file.FileUtils;
-import com.compass.biz.config.ServerConfig;
+import com.github.xiaoymin.knife4j.annotations.ApiSort;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +32,8 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/common")
+@Api(tags = "通用请求处理")
+@ApiSort(value = 0)
 public class CommonController
 {
     private static final Logger log = LoggerFactory.getLogger(CommonController.class);
@@ -45,6 +50,7 @@ public class CommonController
      * @param delete 是否删除
      */
     @GetMapping("/download")
+    @ApiOperation("通用下载请求")
     public void fileDownload(String fileName, Boolean delete, HttpServletResponse response, HttpServletRequest request)
     {
         try
