@@ -1,5 +1,7 @@
 package com.compass.controller;
 
+import com.compass.biz.service.system.service.ISysDictDataService;
+import com.compass.biz.service.system.service.ISysDictTypeService;
 import com.compass.common.annotation.Log;
 import com.compass.common.core.controller.BaseController;
 import com.compass.common.core.domain.AjaxResult;
@@ -8,8 +10,7 @@ import com.compass.common.core.page.TableDataInfo;
 import com.compass.common.enums.BusinessType;
 import com.compass.common.utils.StringUtils;
 import com.compass.common.utils.poi.ExcelUtil;
-import com.compass.biz.service.system.service.ISysDictDataService;
-import com.compass.biz.service.system.service.ISysDictTypeService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -26,6 +27,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/system/dict/data")
+@Api(tags = "数据字典信息")
 public class SysDictDataController extends BaseController
 {
     @Autowired
