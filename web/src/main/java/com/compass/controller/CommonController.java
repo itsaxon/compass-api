@@ -1,12 +1,13 @@
 package com.compass.controller;
 
+import com.compass.biz.config.ServerConfig;
 import com.compass.common.config.CompassConfig;
 import com.compass.common.constant.CompassConstants;
 import com.compass.common.core.domain.AjaxResult;
 import com.compass.common.utils.StringUtils;
 import com.compass.common.utils.file.FileUploadUtils;
 import com.compass.common.utils.file.FileUtils;
-import com.compass.biz.config.ServerConfig;
+import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/common")
+@Api(tags = "通用请求处理")
 public class CommonController
 {
     private static final Logger log = LoggerFactory.getLogger(CommonController.class);

@@ -1,5 +1,6 @@
 package com.compass.controller;
 
+import com.compass.biz.service.system.service.ISysDeptService;
 import com.compass.common.annotation.Log;
 import com.compass.common.constant.UserConstants;
 import com.compass.common.core.controller.BaseController;
@@ -7,7 +8,7 @@ import com.compass.common.core.domain.AjaxResult;
 import com.compass.common.core.domain.entity.SysDept;
 import com.compass.common.enums.BusinessType;
 import com.compass.common.utils.StringUtils;
-import com.compass.biz.service.system.service.ISysDeptService;
+import io.swagger.annotations.Api;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -24,6 +25,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/system/dept")
+@Api(tags = "部门信息")
 public class SysDeptController extends BaseController
 {
     @Autowired
