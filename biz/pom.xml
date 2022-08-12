@@ -102,7 +102,7 @@
 
         <dependency>
             <groupId>com.compass</groupId>
-            <artifactId>web</artifactId>
+            <artifactId>client</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 

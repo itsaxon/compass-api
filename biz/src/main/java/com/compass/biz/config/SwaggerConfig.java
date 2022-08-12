@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import springfox.documentation.annotations.ApiIgnore;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -46,6 +47,19 @@ public class SwaggerConfig {
      */
     @Value("${swagger.pathMapping}")
     private String pathMapping;
+
+    @Bean
+    public Docket epmOpenDocket() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .groupName("CPS 对外接口")
+                .enable(true)
+                .ignoredParameterTypes(ApiIgnore.class)
+                .apiInfo(apiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.compass"))
+                .paths((s) -> s.startsWith("/wechat") )
+                .build();
+    }
 
     /**
      * 创建API

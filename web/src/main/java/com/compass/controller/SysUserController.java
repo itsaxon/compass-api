@@ -14,14 +14,8 @@ import com.compass.common.enums.BusinessType;
 import com.compass.common.utils.SecurityUtils;
 import com.compass.common.utils.StringUtils;
 import com.compass.common.utils.poi.ExcelUtil;
-import com.compass.manager.SysUserManager;
-import com.compass.model.CompassResponse;
-import com.compass.model.request.SysUserPageRequest;
-import com.compass.model.vo.SysUserPageVO;
-import com.github.pagehelper.PageInfo;
 import com.github.xiaoymin.knife4j.annotations.ApiSort;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -29,7 +23,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -45,9 +38,9 @@ import java.util.stream.Collectors;
 @Api(tags = "用户信息")
 @ApiSort(1)
 public class SysUserController extends BaseController {
-
-    @Resource
-    private SysUserManager sysUserManager;
+//
+//    @Resource
+//    private SysUserManager sysUserManager;
 
     @Autowired
     private ISysUserService userService;
@@ -58,15 +51,15 @@ public class SysUserController extends BaseController {
     @Autowired
     private ISysPostService postService;
 
-    /**
-     * 获取用户列表
-     */
-    @PreAuthorize("@ss.hasPermi('system:user:list')")
-    @GetMapping("/listX")
-    @ApiOperation("获取用户列表")
-    public CompassResponse<PageInfo<SysUserPageVO>> listX(SysUserPageRequest request) {
-        return CompassResponse.ok(sysUserManager.selectSysUserList(request));
-    }
+//    /**
+//     * 获取用户列表
+//     */
+//    @PreAuthorize("@ss.hasPermi('system:user:list')")
+//    @GetMapping("/listX")
+//    @ApiOperation("获取用户列表")
+//    public CompassResponse<PageInfo<SysUserPageVO>> listX(SysUserPageRequest request) {
+//        return CompassResponse.ok(sysUserManager.selectSysUserList(request));
+//    }
 
     /**
      * 获取用户列表
