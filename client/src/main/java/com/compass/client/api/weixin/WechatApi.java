@@ -1,10 +1,14 @@
 package com.compass.client.api.weixin;
 
 import com.compass.client.api.weixin.dto.WechatCallBackDTO;
+import com.compass.client.api.weixin.dto.WechatUrlCheckDTO;
 import com.github.xiaoymin.knife4j.annotations.ApiSort;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,22 +24,16 @@ import javax.servlet.http.HttpServletResponse;
 @ApiSort(8)
 public interface WechatApi {
 
+
     /**
-     * url检查
+     * URL验证
      *
-     * @param msgSignature 信息签名
-     * @param timestamp    时间戳
-     * @param nonce        现时标志
-     * @param echostr      echostr
-     * @param response     响应
+     * @param wechatUrlCheckDTO URL验证请求
+     * @param response          响应
      */
     @GetMapping("/back")
     @ApiOperation(value = "URL验证")
-    void urlCheck(@RequestParam(name = "msgSignature") final String msgSignature,
-                  @RequestParam(name = "timestamp") final String timestamp,
-                  @RequestParam(name = "nonce") final String nonce,
-                  @RequestParam(name = "echostr") final String echostr,
-                  HttpServletResponse response);
+    void urlCheck(WechatUrlCheckDTO wechatUrlCheckDTO, HttpServletResponse response);
 
     /**
      * 微信回调

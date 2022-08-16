@@ -3,10 +3,10 @@ package com.compass.client.api.weixin;
 import cn.hutool.core.util.URLUtil;
 import com.compass.client.api.weixin.dto.WechatCallBackDTO;
 import com.compass.client.api.weixin.dto.WechatConfigDTO;
+import com.compass.client.api.weixin.dto.WechatUrlCheckDTO;
 import com.compass.client.api.weixin.tools.WXBizMsgCrypt;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
@@ -22,24 +22,24 @@ import java.io.PrintWriter;
 @RestController
 public class WechatApiImpl implements WechatApi {
 
-
     /**
-     * url检查
+     * URL验证
      *
-     * @param msgSignature 信息签名
-     * @param timestamp    时间戳
-     * @param nonce        现时标志
-     * @param echostr      echostr
-     * @param response     响应
+     * @param wechatUrlCheckDTO URL验证请求
+     * @param response          响应
      */
     @Override
     @SneakyThrows
-    public void urlCheck(@RequestParam(name = "msgSignature") final String msgSignature,
-                         @RequestParam(name = "timestamp") final String timestamp,
-                         @RequestParam(name = "nonce") final String nonce,
-                         @RequestParam(name = "echostr") final String echostr,
-                         HttpServletResponse response) {
+    public void urlCheck(WechatUrlCheckDTO wechatUrlCheckDTO, HttpServletResponse response) {
 
+        // 企微加密签名
+        String msgSignatureParse = URLUtil.decode(wechatUrlCheckDTO.getMsgSignature());
+        // 时间戳
+        String timestampParse = URLUtil.decode(wechatUrlCheckDTO.getTimestamp());
+        // 随机数
+        String nonceParse = URLUtil.decode(wechatUrlCheckDTO.getNonce());
+        // 包含消息内容的加密字符串
+        String echostrParse = URLUtil.decode(wechatUrlCheckDTO.getEchostr());
         // 企微消息配置
         WechatConfigDTO wechatConfig = getWechatConfig();
 
@@ -48,23 +48,12 @@ public class WechatApiImpl implements WechatApi {
                 wechatConfig.getEncodingAesKey(),
                 wechatConfig.getReceiveId());
 
-        // 对请求 URL 进行解密
-
-        // 企微加密签名
-        String msgSignatureParse = URLUtil.decode(msgSignature);
-        // 时间戳
-        String timestampParse = URLUtil.decode(timestamp);
-        // 随机数
-        String nonceParse = URLUtil.decode(nonce);
-        // 包含消息内容的加密字符串
-        String echostrParse = URLUtil.decode(echostr);
-
         // 解密后的明文
-        String echosrt= wxBizMsgCrypt.VerifyURL(msgSignatureParse,
+        String echosrt = wxBizMsgCrypt.VerifyURL(msgSignatureParse,
                 timestampParse,
                 nonceParse,
                 echostrParse);
-        System.out.println("解密后的信息为：==========="+echosrt+"===========");
+        System.out.println("解密后的信息为：===========" + echosrt + "===========");
 
         PrintWriter writer = response.getWriter();
         writer.write(echosrt);
@@ -89,9 +78,9 @@ public class WechatApiImpl implements WechatApi {
      */
     public WechatConfigDTO getWechatConfig() {
         WechatConfigDTO wechatConfigDTO = new WechatConfigDTO();
-        wechatConfigDTO.setToken("");
-        wechatConfigDTO.setEncodingAesKey("");
-        wechatConfigDTO.setReceiveId("");
+        wechatConfigDTO.setToken("789jkdjueiklokijikiasfghjureasdfghjnvbhfre3");
+        wechatConfigDTO.setEncodingAesKey("789jkdjueiklokijikiasfghjureasdfghjnvbhfre3");
+        wechatConfigDTO.setReceiveId("temjsjfkdjkfhkh12312");
         return wechatConfigDTO;
     }
 
