@@ -6,11 +6,13 @@ import com.compass.client.api.weixin.dto.WechatConfigDTO;
 import com.compass.client.api.weixin.dto.WechatUrlCheckDTO;
 import com.compass.client.api.weixin.tools.WXBizMsgCrypt;
 import lombok.SneakyThrows;
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
+import java.util.UUID;
 
 /**
  * 微信回调 API 实现
@@ -53,6 +55,7 @@ public class WechatApiImpl implements WechatApi {
                 timestampParse,
                 nonceParse,
                 echostrParse);
+
         System.out.println("解密后的信息为：===========" + echosrt + "===========");
 
         PrintWriter writer = response.getWriter();
@@ -78,9 +81,15 @@ public class WechatApiImpl implements WechatApi {
      */
     public WechatConfigDTO getWechatConfig() {
         WechatConfigDTO wechatConfigDTO = new WechatConfigDTO();
-        wechatConfigDTO.setToken("789jkdjueiklokijikiasfghjureasdfghjnvbhfre3");
-        wechatConfigDTO.setEncodingAesKey("789jkdjueiklokijikiasfghjureasdfghjnvbhfre3");
-        wechatConfigDTO.setReceiveId("temjsjfkdjkfhkh12312");
+        wechatConfigDTO.setToken("SFWRix167l");
+        // 微信生成的 - 无法通过校验
+//        wechatConfigDTO.setEncodingAesKey("kW5ILz5bwRTiRt8edWJof74AfFUeVvjzlv9gY7MwxBN");
+        //
+        String s = Base64.encodeBase64String(UUID.randomUUID().toString()
+                .replaceAll("-", "").getBytes())
+                .substring(0,43);
+        wechatConfigDTO.setEncodingAesKey(s);
+        wechatConfigDTO.setReceiveId("");
         return wechatConfigDTO;
     }
 
